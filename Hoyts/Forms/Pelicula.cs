@@ -158,7 +158,7 @@ namespace Hoyts.Forms
             }
             if (tb_duracion.TextLength == 0)
             {
-                errores.Add("Debes ingresar una duración en minutos.");
+                errores.Add("Debes ingresar una duración en minutos para la pelicula.");
             }
             if (tb_argumento.TextLength == 0)
             {
