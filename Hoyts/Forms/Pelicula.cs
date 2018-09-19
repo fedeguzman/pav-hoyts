@@ -255,14 +255,7 @@ namespace Hoyts.Forms
             Console.WriteLine(sql);
 
             mostrarPeliculas();
-            tb_titulo_original.Text = "";
-            tb_titulo_español.Text = "";
-            tb_duracion.Text = "";
-            tb_argumento.Text = "";
-            tb_url.Text = "";
-            cb_calificaciones.SelectedIndex = 0;
-            cb_paisorigen.SelectedIndex = 0;
-
+            limpiarCampos();
             btn_eliminar.Visible = false;
         }
     }
