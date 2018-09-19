@@ -166,7 +166,7 @@ namespace Hoyts.Forms
             }
             if (tb_url.TextLength == 0)
             {
-                errores.Add("Debes ingresar una URL para la pelicula.");
+                errores.Add("Debes ingresar una URL para la pelicula");
             }
 
             if((cb_calificaciones.SelectedItem as ComboboxItem).Value.ToString() == "0")
