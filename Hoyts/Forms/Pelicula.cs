@@ -3,6 +3,8 @@ using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
+using System.Net;
 using System.Windows.Forms;
 
 namespace Hoyts.Forms
@@ -137,6 +139,7 @@ namespace Hoyts.Forms
             mostrarPeliculas();
             id_selected = "";
             btn_eliminar.Visible = false;
+            btn_nuevo.Visible = false;
 
             dt_movieTables.ClearSelection();
         }
@@ -207,56 +210,83 @@ namespace Hoyts.Forms
             tb_url.Text = "";
             cb_calificaciones.SelectedIndex = 0;
             cb_paisorigen.SelectedIndex = 0;
+            panel_movie.Visible = false;
         }
 
         private void selectMovie(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dt_movieTables.SelectedRows)
+            try
             {
-                
-                id_selected = row.Cells[0].Value.ToString();
-                tb_titulo_original.Text = row.Cells[1].Value.ToString();
-                tb_titulo_español.Text = row.Cells[2].Value.ToString();
-                tb_duracion.Text = row.Cells[3].Value.ToString();
-                tb_argumento.Text = row.Cells[4].Value.ToString();
-                tb_url.Text = row.Cells[7].Value.ToString();
-
-                for (int i = 0; i < cb_calificaciones.Items.Count; i++)
+                foreach (DataGridViewRow row in dt_movieTables.SelectedRows)
                 {
-                    string valueInDb = row.Cells[5].Value.ToString();
-                    string value = cb_calificaciones.GetItemText(cb_calificaciones.Items[i]);
-                    if(value == valueInDb)
+
+                    id_selected = row.Cells[0].Value.ToString();
+                    tb_titulo_original.Text = row.Cells[1].Value.ToString();
+                    tb_titulo_español.Text = row.Cells[2].Value.ToString();
+                    tb_duracion.Text = row.Cells[3].Value.ToString();
+                    tb_argumento.Text = row.Cells[4].Value.ToString();
+                    tb_url.Text = row.Cells[7].Value.ToString();
+
+                    shw_tituloOriginal.Text = tb_titulo_original.Text;
+                    shw_descripcion.Text = row.Cells[4].Value.ToString();
+
+                    img_poster.Load(row.Cells[7].Value.ToString());
+
+                    panel_movie.Visible = true;
+
+                    for (int i = 0; i < cb_calificaciones.Items.Count; i++)
                     {
-                        cb_calificaciones.SelectedIndex = i;
+                        string valueInDb = row.Cells[5].Value.ToString();
+                        string value = cb_calificaciones.GetItemText(cb_calificaciones.Items[i]);
+                        if (value == valueInDb)
+                        {
+                            cb_calificaciones.SelectedIndex = i;
+                        }
                     }
+
+                    for (int i = 0; i < cb_paisorigen.Items.Count; i++)
+                    {
+                        string valueInDb = row.Cells[6].Value.ToString();
+                        string value = cb_paisorigen.GetItemText(cb_paisorigen.Items[i]);
+                        if (value == valueInDb)
+                        {
+                            cb_paisorigen.SelectedIndex = i;
+                        }
+                    }
+
                 }
 
-                for (int i = 0; i < cb_paisorigen.Items.Count; i++)
-                {
-                    string valueInDb = row.Cells[6].Value.ToString();
-                    string value = cb_paisorigen.GetItemText(cb_paisorigen.Items[i]);
-                    if (value == valueInDb)
-                    {
-                        cb_paisorigen.SelectedIndex = i;
-                    }
-                }
-
+                btn_eliminar.Visible = true;
+                btn_nuevo.Visible = true;
+            } catch(RowNotInTableException r)
+            {
+                Console.WriteLine(r);
             }
-
-            btn_eliminar.Visible = true;
+            
 
         }
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
             var sql = "DELETE FROM pav1_hoyts.\"Pelicula\" WHERE id = "+ "'"+ id_selected + "'";
-            db.DeleteData(sql);
 
-            Console.WriteLine(sql);
+            DialogResult result = MessageBox.Show("¿Estas seguro de eliminar esta pelicula?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
-            mostrarPeliculas();
+            if(result == DialogResult.Yes)
+            {
+                db.DeleteData(sql);
+                mostrarPeliculas();
+                limpiarCampos();
+                btn_eliminar.Visible = false;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             limpiarCampos();
+            id_selected = "";
             btn_eliminar.Visible = false;
+            dt_movieTables.ClearSelection();
         }
     }
 }

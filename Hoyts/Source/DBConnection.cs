@@ -1,5 +1,5 @@
 ﻿using Npgsql;
-using System;
+using System.Configuration;
 using System.Data;
 
 
@@ -7,7 +7,8 @@ namespace Hoyts.Source
 {
     class DBConnection
     {
-        private NpgsqlConnection conn = new NpgsqlConnection("Host=ec2-54-83-13-119.compute-1.amazonaws.com;Username=plktymuyvnnoci;Password=a53ef50b5274e2355d0bdef3c8623c03690b219ed5e18c45dba9c4be875b4b71;Database=d8t1keg8rrv8oo;SSL Mode=Require;Trust Server Certificate=true");
+        private static string connection_string = ConfigurationManager.AppSettings["connectionPostgres"].ToString();
+        private NpgsqlConnection conn = new NpgsqlConnection(connection_string);
 
         public void connect()
         {
