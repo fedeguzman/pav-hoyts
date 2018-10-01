@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Hoyts.Forms
 {
-    public partial class Settings : Form
+    public partial class Configuración : Form
     {
-        public Settings()
+        public Configuración()
         {
             InitializeComponent();
         }
@@ -27,6 +27,18 @@ namespace Hoyts.Forms
         {
             Forms.Calificaciones c = new Calificaciones();
             c.ShowDialog();
+        }
+
+        private void btn_genre_Click(object sender, EventArgs e)
+        {
+            Forms.Genero g = new Genero();
+            g.ShowDialog();
+        }
+
+        private void btn_eventos_Click(object sender, EventArgs e)
+        {
+            Forms.Evento evento = new Evento();
+            evento.ShowDialog();
         }
     }
 }

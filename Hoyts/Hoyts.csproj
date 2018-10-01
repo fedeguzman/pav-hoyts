@@ -72,6 +72,18 @@
     <Compile Include="Forms\Calificaciones.Designer.cs">
       <DependentUpon>Calificaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Evento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Evento.Designer.cs">
+      <DependentUpon>Evento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Genero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Genero.Designer.cs">
+      <DependentUpon>Genero.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SalasDeProyeccion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +112,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Calificaciones.resx">
       <DependentUpon>Calificaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Evento.resx">
+      <DependentUpon>Evento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Genero.resx">
+      <DependentUpon>Genero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Pelicula.resx">
       <DependentUpon>Pelicula.cs</DependentUpon>

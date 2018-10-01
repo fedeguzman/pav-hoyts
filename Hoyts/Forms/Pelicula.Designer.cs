@@ -46,12 +46,6 @@
             this.tb_url = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dt_movieTables = new System.Windows.Forms.DataGridView();
-            this.btn_eliminar = new System.Windows.Forms.Button();
-            this.img_poster = new System.Windows.Forms.PictureBox();
-            this.shw_tituloOriginal = new System.Windows.Forms.Label();
-            this.shw_descripcion = new System.Windows.Forms.RichTextBox();
-            this.panel_movie = new System.Windows.Forms.Panel();
-            this.btn_nuevo = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titulo_original = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Titulo_español = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +54,12 @@
             this.calificación = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pais = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.URL = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.btn_eliminar = new System.Windows.Forms.Button();
+            this.img_poster = new System.Windows.Forms.PictureBox();
+            this.shw_tituloOriginal = new System.Windows.Forms.Label();
+            this.shw_descripcion = new System.Windows.Forms.RichTextBox();
+            this.panel_movie = new System.Windows.Forms.Panel();
+            this.btn_nuevo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dt_movieTables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.img_poster)).BeginInit();
             this.panel_movie.SuspendLayout();
@@ -248,81 +248,6 @@
             this.dt_movieTables.TabIndex = 23;
             this.dt_movieTables.SelectionChanged += new System.EventHandler(this.selectMovie);
             // 
-            // btn_eliminar
-            // 
-            this.btn_eliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.btn_eliminar.FlatAppearance.BorderSize = 0;
-            this.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_eliminar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_eliminar.ForeColor = System.Drawing.Color.White;
-            this.btn_eliminar.Location = new System.Drawing.Point(134, 252);
-            this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(106, 33);
-            this.btn_eliminar.TabIndex = 9;
-            this.btn_eliminar.Text = "Eliminar";
-            this.btn_eliminar.UseVisualStyleBackColor = false;
-            this.btn_eliminar.Visible = false;
-            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
-            // 
-            // img_poster
-            // 
-            this.img_poster.BackColor = System.Drawing.Color.DimGray;
-            this.img_poster.Image = ((System.Drawing.Image)(resources.GetObject("img_poster.Image")));
-            this.img_poster.InitialImage = ((System.Drawing.Image)(resources.GetObject("img_poster.InitialImage")));
-            this.img_poster.Location = new System.Drawing.Point(333, 11);
-            this.img_poster.Name = "img_poster";
-            this.img_poster.Size = new System.Drawing.Size(152, 227);
-            this.img_poster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.img_poster.TabIndex = 25;
-            this.img_poster.TabStop = false;
-            // 
-            // shw_tituloOriginal
-            // 
-            this.shw_tituloOriginal.Font = new System.Drawing.Font("Google Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shw_tituloOriginal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.shw_tituloOriginal.Location = new System.Drawing.Point(12, 11);
-            this.shw_tituloOriginal.Name = "shw_tituloOriginal";
-            this.shw_tituloOriginal.Size = new System.Drawing.Size(312, 53);
-            this.shw_tituloOriginal.TabIndex = 26;
-            // 
-            // shw_descripcion
-            // 
-            this.shw_descripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.shw_descripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.shw_descripcion.ForeColor = System.Drawing.SystemColors.Info;
-            this.shw_descripcion.Location = new System.Drawing.Point(12, 67);
-            this.shw_descripcion.Name = "shw_descripcion";
-            this.shw_descripcion.Size = new System.Drawing.Size(308, 118);
-            this.shw_descripcion.TabIndex = 30;
-            this.shw_descripcion.Text = "\t";
-            // 
-            // panel_movie
-            // 
-            this.panel_movie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel_movie.Controls.Add(this.shw_descripcion);
-            this.panel_movie.Controls.Add(this.shw_tituloOriginal);
-            this.panel_movie.Controls.Add(this.img_poster);
-            this.panel_movie.Location = new System.Drawing.Point(759, 33);
-            this.panel_movie.Name = "panel_movie";
-            this.panel_movie.Size = new System.Drawing.Size(495, 252);
-            this.panel_movie.TabIndex = 26;
-            // 
-            // btn_nuevo
-            // 
-            this.btn_nuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.btn_nuevo.FlatAppearance.BorderSize = 0;
-            this.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_nuevo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_nuevo.ForeColor = System.Drawing.Color.White;
-            this.btn_nuevo.Location = new System.Drawing.Point(22, 252);
-            this.btn_nuevo.Name = "btn_nuevo";
-            this.btn_nuevo.Size = new System.Drawing.Size(106, 33);
-            this.btn_nuevo.TabIndex = 27;
-            this.btn_nuevo.Text = "Nuevo";
-            this.btn_nuevo.UseVisualStyleBackColor = false;
-            this.btn_nuevo.Visible = false;
-            this.btn_nuevo.Click += new System.EventHandler(this.button1_Click);
-            // 
             // id
             // 
             this.id.FillWeight = 1F;
@@ -384,6 +309,81 @@
             this.URL.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.URL.Visible = false;
             // 
+            // btn_eliminar
+            // 
+            this.btn_eliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btn_eliminar.FlatAppearance.BorderSize = 0;
+            this.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_eliminar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_eliminar.ForeColor = System.Drawing.Color.White;
+            this.btn_eliminar.Location = new System.Drawing.Point(134, 252);
+            this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.Size = new System.Drawing.Size(106, 33);
+            this.btn_eliminar.TabIndex = 9;
+            this.btn_eliminar.Text = "Eliminar";
+            this.btn_eliminar.UseVisualStyleBackColor = false;
+            this.btn_eliminar.Visible = false;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
+            // 
+            // img_poster
+            // 
+            this.img_poster.BackColor = System.Drawing.Color.DimGray;
+            this.img_poster.Image = ((System.Drawing.Image)(resources.GetObject("img_poster.Image")));
+            this.img_poster.InitialImage = ((System.Drawing.Image)(resources.GetObject("img_poster.InitialImage")));
+            this.img_poster.Location = new System.Drawing.Point(320, 12);
+            this.img_poster.Name = "img_poster";
+            this.img_poster.Size = new System.Drawing.Size(152, 227);
+            this.img_poster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.img_poster.TabIndex = 25;
+            this.img_poster.TabStop = false;
+            // 
+            // shw_tituloOriginal
+            // 
+            this.shw_tituloOriginal.Font = new System.Drawing.Font("Google Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shw_tituloOriginal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.shw_tituloOriginal.Location = new System.Drawing.Point(12, 11);
+            this.shw_tituloOriginal.Name = "shw_tituloOriginal";
+            this.shw_tituloOriginal.Size = new System.Drawing.Size(295, 53);
+            this.shw_tituloOriginal.TabIndex = 26;
+            // 
+            // shw_descripcion
+            // 
+            this.shw_descripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.shw_descripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.shw_descripcion.ForeColor = System.Drawing.SystemColors.Info;
+            this.shw_descripcion.Location = new System.Drawing.Point(12, 67);
+            this.shw_descripcion.Name = "shw_descripcion";
+            this.shw_descripcion.Size = new System.Drawing.Size(295, 171);
+            this.shw_descripcion.TabIndex = 30;
+            this.shw_descripcion.Text = "\t";
+            // 
+            // panel_movie
+            // 
+            this.panel_movie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel_movie.Controls.Add(this.shw_descripcion);
+            this.panel_movie.Controls.Add(this.shw_tituloOriginal);
+            this.panel_movie.Controls.Add(this.img_poster);
+            this.panel_movie.Location = new System.Drawing.Point(771, 33);
+            this.panel_movie.Name = "panel_movie";
+            this.panel_movie.Size = new System.Drawing.Size(483, 252);
+            this.panel_movie.TabIndex = 26;
+            // 
+            // btn_nuevo
+            // 
+            this.btn_nuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btn_nuevo.FlatAppearance.BorderSize = 0;
+            this.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_nuevo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nuevo.ForeColor = System.Drawing.Color.White;
+            this.btn_nuevo.Location = new System.Drawing.Point(22, 252);
+            this.btn_nuevo.Name = "btn_nuevo";
+            this.btn_nuevo.Size = new System.Drawing.Size(106, 33);
+            this.btn_nuevo.TabIndex = 27;
+            this.btn_nuevo.Text = "Nuevo";
+            this.btn_nuevo.UseVisualStyleBackColor = false;
+            this.btn_nuevo.Visible = false;
+            this.btn_nuevo.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Pelicula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -410,6 +410,7 @@
             this.Controls.Add(this.tb_titulo_original);
             this.Controls.Add(this.label_tituloOriginal);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Pelicula";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pelicula";

@@ -89,7 +89,7 @@ namespace Hoyts
 
         private void btn_settings_Click(object sender, EventArgs e)
         {
-            Forms.Settings settings = new Forms.Settings();
+            Forms.Configuración settings = new Forms.Configuración();
             settings.ShowDialog();
         }
     }
