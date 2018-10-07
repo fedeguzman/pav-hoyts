@@ -13,7 +13,7 @@ namespace Hoyts.Forms
     {
 
         private DBConnection db = new DBConnection();
-        private string id_selected = "";
+        public static string id_selected = "";
 
         public Pelicula()
         {
@@ -25,7 +25,6 @@ namespace Hoyts.Forms
             mostrarPeliculas();
             cargarCalificaciones();
             cargarPaisesOrigen();
-            btn_eliminar.Visible = false;
         }
 
         private void cargarCalificaciones()
@@ -138,8 +137,6 @@ namespace Hoyts.Forms
             limpiarCampos();
             mostrarPeliculas();
             id_selected = "";
-            btn_eliminar.Visible = false;
-            btn_nuevo.Visible = false;
 
             dt_movieTables.ClearSelection();
         }
@@ -210,7 +207,6 @@ namespace Hoyts.Forms
             tb_url.Text = "";
             cb_calificaciones.SelectedIndex = 0;
             cb_paisorigen.SelectedIndex = 0;
-            panel_movie.Visible = false;
         }
 
         private void selectMovie(object sender, EventArgs e)
@@ -230,7 +226,9 @@ namespace Hoyts.Forms
                     shw_tituloOriginal.Text = tb_titulo_original.Text;
                     shw_descripcion.Text = row.Cells[4].Value.ToString();
 
-                    img_poster.Load(row.Cells[7].Value.ToString());
+                    img_poster.Visible = true;
+                
+                    img_poster.Load(row.Cells[7].Value.ToString() != "" ? row.Cells[7].Value.ToString() : "file:///C:/Users/fedeg/source/repos/pav-hoyts/Hoyts/img/817972f4f61c54772c2d601ea5645655394deb8e.jpg");
 
                     panel_movie.Visible = true;
 
@@ -256,8 +254,6 @@ namespace Hoyts.Forms
 
                 }
 
-                btn_eliminar.Visible = true;
-                btn_nuevo.Visible = true;
             } catch(RowNotInTableException r)
             {
                 Console.WriteLine(r);
@@ -268,25 +264,48 @@ namespace Hoyts.Forms
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            var sql = "DELETE FROM pav1_hoyts.\"Pelicula\" WHERE id = "+ "'"+ id_selected + "'";
 
-            DialogResult result = MessageBox.Show("¿Estas seguro de eliminar esta pelicula?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-
-            if(result == DialogResult.Yes)
+            if(id_selected != "")
             {
-                db.DeleteData(sql);
-                mostrarPeliculas();
-                limpiarCampos();
-                btn_eliminar.Visible = false;
+                var sql = "DELETE FROM pav1_hoyts.\"Pelicula\" WHERE id = " + "'" + id_selected + "'";
+
+                DialogResult result = MessageBox.Show("¿Estas seguro de eliminar esta pelicula?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                if (result == DialogResult.Yes)
+                {
+                    db.DeleteData(sql);
+                    mostrarPeliculas();
+                    limpiarCampos();
+                    btn_eliminar.Visible = false;
+                }
             }
+            else
+            {
+                MessageBox.Show("Debes seleccionar una pelicula primero.");
+            }
+
+            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void new_movie(object sender, EventArgs e)
         {
             limpiarCampos();
             id_selected = "";
-            btn_eliminar.Visible = false;
+            panel_movie.Visible = false;
             dt_movieTables.ClearSelection();
+        }
+
+        private void btn_proyecciones_Click(object sender, EventArgs e)
+        {
+            if (id_selected != "")
+            {
+                Forms.Proyecciones.Main main = new Proyecciones.Main();
+                main.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Debes seleccionar una pelicula primero.");
+            }
         }
     }
 }

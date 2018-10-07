@@ -32,6 +32,14 @@ namespace Hoyts.Source
             close();
         }
 
+        public void SetData(string query)
+        {
+            connect();
+            var cmd = new NpgsqlCommand(query, conn);
+            var reader = cmd.ExecuteNonQuery();
+            close();
+        }
+
 
         public void DeleteData(string query)
         {

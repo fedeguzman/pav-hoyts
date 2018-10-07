@@ -84,6 +84,12 @@
     <Compile Include="Forms\Genero.Designer.cs">
       <DependentUpon>Genero.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Proyecciones\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Proyecciones\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SalasDeProyeccion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Pelicula.resx">
       <DependentUpon>Pelicula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Proyecciones\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SalasDeProyeccion.resx">
       <DependentUpon>SalasDeProyeccion.cs</DependentUpon>

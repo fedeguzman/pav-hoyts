@@ -33,7 +33,7 @@ namespace Hoyts
 
         private void cargarPelisEnCartelera()
         {
-            var sql = "SELECT t.* FROM pav1_hoyts.\"Pelicula\" t";
+            var sql = "SELECT P.* FROM pav1_hoyts.\"Pelicula\" P WHERE P.id IN (SELECT DISTINCT F.id_pelicula FROM pav1_hoyts.\"Funciones\" F WHERE F.fecha_funcion >= now()::date)";
 
             DataTable data = db.GetData(sql);
             DataRowCollection movies = data.Rows;
@@ -63,12 +63,26 @@ namespace Hoyts
                     tmpButton.Width = ButtonWidth;
                     tmpButton.Height = ButtonHeight;
                     tmpButton.FlatStyle = FlatStyle.Flat;
-                    tmpButton.BackgroundImageLayout = ImageLayout.Stretch;
+                    tmpButton.BackgroundImageLayout = ImageLayout.Stretch;                  
+                    
+                    string url = movies[m][7].ToString();
+
+                    if(url == "")
+                    {
+                        url = "file:///C:/Users/fedeg/source/repos/pav-hoyts/Hoyts/img/817972f4f61c54772c2d601ea5645655394deb8e.jpg";
+                        tmpButton.Text = movies[m]["titulo_original"].ToString();
+                        tmpButton.TextAlign = ContentAlignment.MiddleCenter;
+                        FontFamily fontFamily = new FontFamily("Google Sans");
+                        tmpButton.Font = new Font(fontFamily, 16, FontStyle.Bold);
+                        tmpButton.ForeColor = Color.White;
+                    }
+
                     WebClient wc = new WebClient();
-                    byte[] bytes = wc.DownloadData(movies[m][7].ToString());
+                    byte[] bytes = wc.DownloadData(url);
                     MemoryStream ms = new MemoryStream(bytes);
                     Image poster = Image.FromStream(ms);
                     tmpButton.BackgroundImage = poster;
+
                     m++;
                     body.Controls.Add(tmpButton);
                 }
