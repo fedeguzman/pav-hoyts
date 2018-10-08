@@ -29,7 +29,11 @@ namespace Hoyts
             date.Text = dt.ToString();
         }
 
-
+        private void cargarFuncionesPelicula(object sender, EventArgs e, string id)
+        {
+            Forms.Compra.FuncionesPorPelicula fpp = new Forms.Compra.FuncionesPorPelicula(id);
+            fpp.ShowDialog();
+        }
 
         private void cargarPelisEnCartelera()
         {
@@ -76,6 +80,12 @@ namespace Hoyts
                         tmpButton.Font = new Font(fontFamily, 16, FontStyle.Bold);
                         tmpButton.ForeColor = Color.White;
                     }
+
+                    string id = movies[m]["id"].ToString();
+
+                    tmpButton.Click += (sender, EventArgs) => {
+                        cargarFuncionesPelicula(sender, EventArgs, id);
+                    };
 
                     WebClient wc = new WebClient();
                     byte[] bytes = wc.DownloadData(url);

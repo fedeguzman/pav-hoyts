@@ -72,6 +72,18 @@
     <Compile Include="Forms\Calificaciones.Designer.cs">
       <DependentUpon>Calificaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Compra\Compra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compra\Compra.Designer.cs">
+      <DependentUpon>Compra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compra\FuncionesPorPelicula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compra\FuncionesPorPelicula.Designer.cs">
+      <DependentUpon>FuncionesPorPelicula.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Evento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +130,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Calificaciones.resx">
       <DependentUpon>Calificaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compra\Compra.resx">
+      <DependentUpon>Compra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compra\FuncionesPorPelicula.resx">
+      <DependentUpon>FuncionesPorPelicula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Evento.resx">
       <DependentUpon>Evento.cs</DependentUpon>
