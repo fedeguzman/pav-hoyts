@@ -92,5 +92,11 @@ namespace Hoyts
             Forms.Configuración settings = new Forms.Configuración();
             settings.ShowDialog();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Forms.PreciosYpromociones preciosYpromociones = new Forms.PreciosYpromociones();
+            preciosYpromociones.ShowDialog();
+        }
     }
 }
