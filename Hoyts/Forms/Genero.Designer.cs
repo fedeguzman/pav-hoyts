@@ -128,6 +128,7 @@
             this.txt_data.Name = "txt_data";
             this.txt_data.Size = new System.Drawing.Size(259, 24);
             this.txt_data.TabIndex = 19;
+            this.txt_data.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_data_MaskInputRejected);
             // 
             // label_tituloOriginal
             // 

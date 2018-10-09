@@ -28,78 +28,71 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Fechaini = new System.Windows.Forms.DateTimePicker();
-            this.Fechafin = new System.Windows.Forms.DateTimePicker();
-            this.DescIni = new System.Windows.Forms.Label();
-            this.DescFin = new System.Windows.Forms.Label();
-            this.comboBox1_PreciosPromos = new System.Windows.Forms.ComboBox();
             this.label_NombrePromo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btn_Agregar = new System.Windows.Forms.Button();
+            this.btn_Modificar = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // Fechaini
-            // 
-            this.Fechaini.Location = new System.Drawing.Point(171, 126);
-            this.Fechaini.Name = "Fechaini";
-            this.Fechaini.Size = new System.Drawing.Size(200, 20);
-            this.Fechaini.TabIndex = 0;
-            this.Fechaini.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // Fechafin
-            // 
-            this.Fechafin.Location = new System.Drawing.Point(171, 187);
-            this.Fechafin.Name = "Fechafin";
-            this.Fechafin.Size = new System.Drawing.Size(200, 20);
-            this.Fechafin.TabIndex = 1;
-            // 
-            // DescIni
-            // 
-            this.DescIni.AutoSize = true;
-            this.DescIni.ForeColor = System.Drawing.Color.White;
-            this.DescIni.Location = new System.Drawing.Point(12, 133);
-            this.DescIni.Name = "DescIni";
-            this.DescIni.Size = new System.Drawing.Size(137, 13);
-            this.DescIni.TabIndex = 2;
-            this.DescIni.Text = "Fecha de inicio de vigencia";
-            this.DescIni.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // DescFin
-            // 
-            this.DescFin.AutoSize = true;
-            this.DescFin.ForeColor = System.Drawing.Color.White;
-            this.DescFin.Location = new System.Drawing.Point(12, 194);
-            this.DescFin.Name = "DescFin";
-            this.DescFin.Size = new System.Drawing.Size(124, 13);
-            this.DescFin.TabIndex = 3;
-            this.DescFin.Text = "Fecha de fin de vigencia";
-            this.DescFin.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // comboBox1_PreciosPromos
-            // 
-            this.comboBox1_PreciosPromos.FormattingEnabled = true;
-            this.comboBox1_PreciosPromos.Items.AddRange(new object[] {
-            "General 2D",
-            "Menores 2D",
-            "General 3D",
-            "Menores 3D",
-            "Miercoles 2D",
-            "Miercoles 3D",
-            "2x1 2D",
-            "2x1 3D"});
-            this.comboBox1_PreciosPromos.Location = new System.Drawing.Point(171, 60);
-            this.comboBox1_PreciosPromos.Name = "comboBox1_PreciosPromos";
-            this.comboBox1_PreciosPromos.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1_PreciosPromos.TabIndex = 4;
             // 
             // label_NombrePromo
             // 
             this.label_NombrePromo.AutoSize = true;
             this.label_NombrePromo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_NombrePromo.ForeColor = System.Drawing.Color.White;
-            this.label_NombrePromo.Location = new System.Drawing.Point(12, 60);
+            this.label_NombrePromo.Location = new System.Drawing.Point(12, 96);
             this.label_NombrePromo.Name = "label_NombrePromo";
             this.label_NombrePromo.Size = new System.Drawing.Size(57, 16);
             this.label_NombrePromo.TabIndex = 5;
             this.label_NombrePromo.Text = "Nombre";
+            this.label_NombrePromo.Click += new System.EventHandler(this.label_NombrePromo_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(336, 33);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Precios y Promociones";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(295, 96);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(249, 173);
+            this.listBox1.TabIndex = 7;
+            // 
+            // btn_Agregar
+            // 
+            this.btn_Agregar.Location = new System.Drawing.Point(89, 141);
+            this.btn_Agregar.Name = "btn_Agregar";
+            this.btn_Agregar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Agregar.TabIndex = 8;
+            this.btn_Agregar.Text = "Agregar";
+            this.btn_Agregar.UseVisualStyleBackColor = true;
+            this.btn_Agregar.Click += new System.EventHandler(this.btn_Agregar_Click);
+            // 
+            // btn_Modificar
+            // 
+            this.btn_Modificar.Location = new System.Drawing.Point(181, 141);
+            this.btn_Modificar.Name = "btn_Modificar";
+            this.btn_Modificar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Modificar.TabIndex = 9;
+            this.btn_Modificar.Text = "Modificar";
+            this.btn_Modificar.UseVisualStyleBackColor = true;
+            this.btn_Modificar.Click += new System.EventHandler(this.btn_Modificar_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(89, 96);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(167, 20);
+            this.textBox1.TabIndex = 10;
             // 
             // PreciosYpromociones
             // 
@@ -107,26 +100,26 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btn_Modificar);
+            this.Controls.Add(this.btn_Agregar);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label_NombrePromo);
-            this.Controls.Add(this.comboBox1_PreciosPromos);
-            this.Controls.Add(this.DescFin);
-            this.Controls.Add(this.DescIni);
-            this.Controls.Add(this.Fechafin);
-            this.Controls.Add(this.Fechaini);
             this.Name = "PreciosYpromociones";
-            this.Text = "Form1";
+            this.Text = "Precios Y Promociones";
+            this.Load += new System.EventHandler(this.PreciosYpromociones_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DateTimePicker Fechaini;
-        private System.Windows.Forms.DateTimePicker Fechafin;
-        private System.Windows.Forms.Label DescIni;
-        private System.Windows.Forms.Label DescFin;
-        private System.Windows.Forms.ComboBox comboBox1_PreciosPromos;
         private System.Windows.Forms.Label label_NombrePromo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btn_Agregar;
+        private System.Windows.Forms.Button btn_Modificar;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
