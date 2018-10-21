@@ -124,6 +124,26 @@
     <Compile Include="Forms\Proyecciones\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ReportesMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportesMain.Designer.cs">
+      <DependentUpon>ReportesMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteTicketsIntervalo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteTicketsIntervalo.Designer.cs">
+      <DependentUpon>ReporteTicketsIntervalo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\TicketsIntervalo.cs">
+      <DependentUpon>TicketsIntervalo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\TicketsIntervalo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TicketsIntervalo.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reportes\FuncionesDePelicula.cs">
       <DependentUpon>FuncionesDePelicula.xsd</DependentUpon>
     </Compile>
@@ -186,7 +206,14 @@
     <EmbeddedResource Include="Forms\Proyecciones\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportesMain.resx">
+      <DependentUpon>ReportesMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reportes\FuncionesDePelicula.rdlc" />
+    <EmbeddedResource Include="Forms\Reportes\ReporteTicketsIntervalo.resx">
+      <DependentUpon>ReporteTicketsIntervalo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reportes\TicketsIntervaloReporte.rdlc" />
     <EmbeddedResource Include="Forms\Reportes\Reporte.resx">
       <DependentUpon>Reporte.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +232,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Forms\Reportes\TicketsIntervalo.xsc">
+      <DependentUpon>TicketsIntervalo.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\TicketsIntervalo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TicketsIntervalo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\Reportes\TicketsIntervalo.xss">
+      <DependentUpon>TicketsIntervalo.xsd</DependentUpon>
+    </None>
     <None Include="Forms\Reportes\FuncionesDePelicula.xsc">
       <DependentUpon>FuncionesDePelicula.xsd</DependentUpon>
     </None>

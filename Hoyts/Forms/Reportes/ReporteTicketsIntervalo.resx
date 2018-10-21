@@ -117,19 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="DataTable1BindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>224, 17</value>
+  <metadata name="TicketsIntervaloBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>118, 17</value>
   </metadata>
-  <metadata name="DataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>123, 17</value>
-  </metadata>
-  <metadata name="dataSet11.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="DataSet2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="DataTable1TableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>416, 17</value>
+  <metadata name="DataSet2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="TicketsIntervaloTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>333, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAUAEBAAAAEACABoBQAAVgAAABgYAAABACAAiAkAAL4FAAAgIAAAAQAgAKgQAABGDwAAMDAAAAEA

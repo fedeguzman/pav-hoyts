@@ -107,9 +107,10 @@
             this.button5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button5.Size = new System.Drawing.Size(221, 41);
             this.button5.TabIndex = 4;
-            this.button5.Text = "Precios y Promociones";
+            this.button5.Text = "Reportes";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button1
             // 
