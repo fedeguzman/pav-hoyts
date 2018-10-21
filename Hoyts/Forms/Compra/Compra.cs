@@ -56,7 +56,7 @@ namespace Hoyts.Forms.Compra
 
         private void cargarPrecios()
         {
-            string sql = "SELECT concat_ws(' - $', nombre, precio ) as nombre_precio, precio FROM pav1_hoyts.\"Precio\" P";
+            string sql = "SELECT CONCAT(nombre,' $', precio ) as nombre_precio, precio FROM Precio P";
 
             if (esMiercoles && funcion["id_formato"].ToString() == "1")
             {
@@ -92,7 +92,7 @@ namespace Hoyts.Forms.Compra
         private void load(object sender, EventArgs e)
         {
             txt_movie.Text = movie["titulo_para_presentar"].ToString();
-            txt_fecha.Text = funcion["fecha_funcion"].ToString().Split(' ')[0] + " " + funcion["horario_comienzo"] + " - " + funcion["horario_fin"];
+            txt_fecha.Text = funcion["fecha_funcion"].ToString().Split(' ')[0] + " " + funcion["horario_comienzo"].ToString().Split('.')[0] + " - " + funcion["horario_fin"].ToString().Split('.')[0];
             txt_formato.Text = formato_video(funcion["id_formato"].ToString()) + " - " + formato_audio(funcion["id_audio"].ToString());
             esMiercoles = funcion["dia"].ToString() == "3" ? true : false;
             cargarPrecios();
@@ -124,16 +124,16 @@ namespace Hoyts.Forms.Compra
         private void registrarTicket(double precioHistorico, string promocion)
         {
 
-            db.SetData("INSERT INTO pav1_hoyts.\"Ticket\" (id_funcion, precio_historico, promocion, id_pelicula) VALUES (" +
+            db.SetData("INSERT INTO Ticket (id_funcion, precio_historico, promocion, id_pelicula) VALUES (" +
                 "'" + funcion["id"].ToString() + "', " +
                  "'" + precioHistorico + "', " +
                  "'" + promocion + "', " +
                  "'" + movie["id"].ToString() + "'" +
                 ")");
 
-            int capacidad = Convert.ToInt32(db.GetData("SELECT stock_tickets FROM pav1_hoyts.\"Funciones\" WHERE id = '" + funcion["id"] + "'").Rows[0]["stock_tickets"]) - 1;
+            int capacidad = Convert.ToInt32(db.GetData("SELECT stock_tickets FROM Funciones WHERE id = '" + funcion["id"] + "'").Rows[0]["stock_tickets"]) - 1;
 
-            db.SetData("UPDATE pav1_hoyts.\"Funciones\" SET stock_tickets = " + capacidad + " WHERE id = '" + funcion["id"] + "'");
+            db.SetData("UPDATE Funciones SET stock_tickets = " + capacidad + " WHERE id = '" + funcion["id"] + "'");
 
         }
 

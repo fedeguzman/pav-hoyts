@@ -37,7 +37,7 @@ namespace Hoyts
 
         private void cargarPelisEnCartelera()
         {
-            var sql = "SELECT P.* FROM pav1_hoyts.\"Pelicula\" P WHERE P.id IN (SELECT DISTINCT F.id_pelicula FROM pav1_hoyts.\"Funciones\" F WHERE F.fecha_funcion >= now()::date)";
+            var sql = "SELECT P.* FROM Pelicula P WHERE P.id IN (SELECT DISTINCT F.id_pelicula FROM Funciones F WHERE F.fecha_funcion >= GETDATE())";
 
             DataTable data = db.GetData(sql);
             DataRowCollection movies = data.Rows;

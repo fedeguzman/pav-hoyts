@@ -26,7 +26,7 @@ namespace Hoyts.Forms.Compra
 
         private void getDataMovie()
         {
-            DataTable data = db.GetData("SELECT * FROM pav1_hoyts.\"Pelicula\" WHERE id = '" + id +"'");
+            DataTable data = db.GetData("SELECT * FROM Pelicula WHERE id = '" + id +"'");
             movie = data.Rows[0];
         }
 
@@ -58,30 +58,30 @@ namespace Hoyts.Forms.Compra
 
         private void loadFunciones()
         {
-            DataTable hoy = db.GetData("SELECT * FROM pav1_hoyts.\"Funciones\" WHERE id_pelicula = '" + id + "' AND fecha_funcion = now()::date AND horario_comienzo >= CURRENT_TIME ORDER BY horario_comienzo ASC");
+            DataTable hoy = db.GetData("SELECT * FROM Funciones WHERE id_pelicula = '" + id + "' AND fecha_funcion =  cast(getdate() as date) AND horario_comienzo >= cast(getdate() as time) ORDER BY horario_comienzo ASC");
             DataRowCollection funciones = hoy.Rows;
 
             foreach (DataRow funcion in funciones)
             {
-                dgv_hoy.Rows.Add(funcion["id"].ToString(), funcion["id_sala"].ToString(), funcion["horario_comienzo"] + " - " + funcion["horario_fin"], formato_video(funcion["id_formato"].ToString()) + " - " + formato_audio(funcion["id_audio"].ToString()));
+                dgv_hoy.Rows.Add(funcion["id"].ToString(), funcion["id_sala"].ToString(), funcion["horario_comienzo"].ToString().Split('.')[0] + " - " + funcion["horario_fin"].ToString().Split('.')[0], formato_video(funcion["id_formato"].ToString()) + " - " + formato_audio(funcion["id_audio"].ToString()));
             }
 
-            DataTable mañana = db.GetData("SELECT * FROM pav1_hoyts.\"Funciones\" WHERE id_pelicula = '" + id + "' AND fecha_funcion = now()::date + 1 ORDER BY horario_comienzo ASC");
+            DataTable mañana = db.GetData("SELECT * FROM Funciones WHERE id_pelicula = '" + id + "' AND fecha_funcion = cast(DATEADD(d, 1, getdate()) as date) AND stock_tickets > 0 ORDER BY horario_comienzo ASC");
             funciones = mañana.Rows;
 
             foreach (DataRow funcion in funciones)
             {
-                dgv_tomorrow.Rows.Add(funcion["id"].ToString(), funcion["id_sala"].ToString(), funcion["horario_comienzo"] + " - " + funcion["horario_fin"], formato_video(funcion["id_formato"].ToString()) + " - " + formato_audio(funcion["id_audio"].ToString()));
+                dgv_tomorrow.Rows.Add(funcion["id"].ToString(), funcion["id_sala"].ToString(), funcion["horario_comienzo"].ToString().Split('.')[0] + " - " + funcion["horario_fin"].ToString().Split('.')[0], formato_video(funcion["id_formato"].ToString()) + " - " + formato_audio(funcion["id_audio"].ToString()));
             }
 
-            DataTable futuro = db.GetData("SELECT * FROM pav1_hoyts.\"Funciones\" WHERE id_pelicula = '" + id + "' AND fecha_funcion >= now()::date + 2  ORDER BY horario_comienzo ASC");
+            DataTable futuro = db.GetData("SELECT * FROM Funciones WHERE id_pelicula = '" + id + "' AND fecha_funcion >= cast(DATEADD(d, 1, getdate()) as date) AND stock_tickets > 0  ORDER BY horario_comienzo ASC");
             funciones = futuro.Rows;
 
             foreach (DataRow funcion in funciones)
             {
                 if(Convert.ToInt32(funcion["stock_tickets"]) > 0)
                 {
-                    dgv_futuro.Rows.Add(funcion["id"].ToString(), funcion["fecha_funcion"].ToString().Split(' ')[0], funcion["horario_comienzo"] + " - " + funcion["horario_fin"], formato_video(funcion["id_formato"].ToString()) + " - " + formato_audio(funcion["id_audio"].ToString()));
+                    dgv_futuro.Rows.Add(funcion["id"].ToString(), funcion["fecha_funcion"].ToString().Split(' ')[0], funcion["horario_comienzo"].ToString().Split('.')[0] + " - " + funcion["horario_fin"].ToString().Split('.')[0], formato_video(funcion["id_formato"].ToString()) + " - " + formato_audio(funcion["id_audio"].ToString()));
                 }
             }
 
@@ -116,7 +116,9 @@ namespace Hoyts.Forms.Compra
 
         private void ventaEntradas(string id_funcion)
         {
-            DataTable datos = db.GetData("SELECT * FROM pav1_hoyts.\"Funciones\" WHERE id = '" + id_funcion + "'");
+            string sql = "SELECT * FROM Funciones WHERE id = " + id_funcion + "";
+            Console.WriteLine(sql);
+            DataTable datos = db.GetData(sql);
             DataRow funcion = datos.Rows[0];
             Hoyts.Forms.Compra.Compra compra = new Forms.Compra.Compra(movie, funcion);
             compra.ShowDialog();

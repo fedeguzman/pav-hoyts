@@ -3,6 +3,7 @@ using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.OleDb;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
@@ -29,7 +30,7 @@ namespace Hoyts.Forms
 
         private void cargarCalificaciones()
         {
-            var sql = "SELECT c.* FROM pav1_hoyts.\"Calificacion\" c";
+            var sql = "SELECT c.* FROM Calificaciones c";
             DataTable data = db.GetData(sql);
             DataRowCollection calificaciones = data.Rows;
 
@@ -52,7 +53,7 @@ namespace Hoyts.Forms
 
         private void cargarPaisesOrigen()
         {
-            var sql = "SELECT p.* FROM pav1_hoyts.\"PaisOrigen\" p";
+            var sql = "SELECT p.* FROM PaisOrigen p";
             DataTable data = db.GetData(sql);
             DataRowCollection paises = data.Rows;
 
@@ -76,8 +77,8 @@ namespace Hoyts.Forms
         private void mostrarPeliculas()
         {
             var sql = "SELECT t.id, t.titulo_original, t.titulo_para_presentar, t.duracion_min, t.argumento," +
-                " c.nombre, P.nombre, t.url_image FROM pav1_hoyts.\"Pelicula\" t " +
-                "JOIN pav1_hoyts.\"Calificacion\" C ON C.\"id\" = t.\"id_calificacion\" JOIN pav1_hoyts.\"PaisOrigen\" p ON P.id = t.id_paisdeorigen";
+                " c.nombre, P.nombre, t.url_image FROM Pelicula t " +
+                "JOIN Calificaciones C ON C.\"id\" = t.\"id_calificacion\" JOIN PaisOrigen p ON P.id = t.id_paisdeorigen";
 
             DataTable data = db.GetData(sql);
             DataRowCollection movies = data.Rows;
@@ -107,13 +108,21 @@ namespace Hoyts.Forms
 
             if (id_selected == "")
             {
-                sql = "INSERT INTO pav1_hoyts.\"Pelicula\" " +
+                sql = "INSERT INTO Pelicula " +
                   "(titulo_original, titulo_para_presentar, duracion_min, argumento, id_calificacion, id_paisdeorigen, url_image) " +
-                  "VALUES (:titulo_original, :titulo_presentar, :duracion, :argumento, :id_calificacion, :id_paisorigen, :url_image)";
+                  "VALUES (" +
+                    "'" + titulo + "'," +
+                    "'" + titulo_español + "'," +
+                    "'" + duracion + "'," +
+                    "'" + argumento + "'," +
+                    "'" + calificacion + "'," +
+                    "'" + paisOrigen + "'," +
+                    "'" + url + "'," +
+                  ")";
             }
             else
             {
-                sql = "UPDATE pav1_hoyts.\"Pelicula\" SET titulo_original = '" + titulo
+                sql = "UPDATE Pelicula SET titulo_original = '" + titulo
                     + "', titulo_para_presentar = '" + titulo_español
                     + "', duracion_min = '" + duracion
                     + "', argumento = '" + argumento
@@ -123,16 +132,7 @@ namespace Hoyts.Forms
                     + "' WHERE id = " + "'" + id_selected + "'";
             }
 
-            NpgsqlParameter[] parameters = new NpgsqlParameter[7];
-            parameters[0] = new NpgsqlParameter("titulo_original", titulo);
-            parameters[1] = new NpgsqlParameter("titulo_presentar", titulo_español);
-            parameters[2] = new NpgsqlParameter("duracion", Convert.ToInt32(duracion));
-            parameters[3] = new NpgsqlParameter("argumento", argumento);
-            parameters[4] = new NpgsqlParameter("id_calificacion", Convert.ToInt32(calificacion));
-            parameters[5] = new NpgsqlParameter("id_paisorigen", Convert.ToInt32(paisOrigen));
-            parameters[6] = new NpgsqlParameter("url_image", url);
-
-            db.SetData(sql, parameters);
+            db.SetData(sql);
 
             limpiarCampos();
             mostrarPeliculas();
@@ -267,7 +267,7 @@ namespace Hoyts.Forms
 
             if(id_selected != "")
             {
-                var sql = "DELETE FROM pav1_hoyts.\"Pelicula\" WHERE id = " + "'" + id_selected + "'";
+                var sql = "DELETE FROM Pelicula WHERE id = " + "'" + id_selected + "'";
 
                 DialogResult result = MessageBox.Show("¿Estas seguro de eliminar esta pelicula?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 

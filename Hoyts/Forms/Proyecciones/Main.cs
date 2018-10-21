@@ -41,7 +41,7 @@ namespace Hoyts.Forms.Proyecciones
 
         private void cargarDatosDePelicula()
         {
-            datos = db.GetData("SELECT * FROM pav1_hoyts.\"Pelicula\" WHERE id = '" + id_selected + "'");
+            datos = db.GetData("SELECT * FROM Pelicula WHERE id = '" + id_selected + "'");
         }
 
         private void updateHasta(object sender, EventArgs e)
@@ -53,7 +53,7 @@ namespace Hoyts.Forms.Proyecciones
        
         private void getEventos()
         {
-            DataTable eventos = db.GetData("SELECT * FROM pav1_hoyts.\"Evento\" ORDER BY id ASC");
+            DataTable eventos = db.GetData("SELECT * FROM Evento ORDER BY id ASC");
             cb_eventos.DataSource = eventos;
             cb_eventos.DisplayMember = "nombre";
             cb_eventos.ValueMember = "id";
@@ -61,12 +61,12 @@ namespace Hoyts.Forms.Proyecciones
 
         private void getFormatos()
         {
-            DataTable audio = db.GetData("SELECT * FROM pav1_hoyts.\"FormatoAudio\"");
+            DataTable audio = db.GetData("SELECT * FROM FormatoAudio");
             cb_audio.DataSource = audio;
             cb_audio.DisplayMember = "nombre";
             cb_audio.ValueMember = "id";
 
-            DataTable video = db.GetData("SELECT * FROM pav1_hoyts.\"FormatoVideo\"");
+            DataTable video = db.GetData("SELECT * FROM FormatoVideo");
             cb_video.DataSource = video;
             cb_video.DisplayMember = "nombre";
             cb_video.ValueMember = "id";
@@ -74,7 +74,7 @@ namespace Hoyts.Forms.Proyecciones
 
         private void getSala()
         {
-            DataTable sala = db.GetData("SELECT * FROM pav1_hoyts.\"Sala\" ORDER BY numero_sala ASC");
+            DataTable sala = db.GetData("SELECT * FROM Sala ORDER BY numero_sala ASC");
             cb_sala.DataSource = sala;
             cb_sala.DisplayMember = "numero_sala";
             cb_sala.ValueMember = "numero_sala";
@@ -120,11 +120,11 @@ namespace Hoyts.Forms.Proyecciones
         {
             string sql = "SELECT F.id_sala, F.fecha_funcion, " +
                 "F.horario_comienzo, F.horario_fin, D.nombre, " +
-                "Fa.nombre, Fv.nombre, F.stock_tickets FROM pav1_hoyts.\"Funciones\" F " +
-                "JOIN pav1_hoyts.\"dias\" D ON D.number = F.dia " +
-                "JOIN pav1_hoyts.\"Evento\" E ON E.id = F.id_evento " +
-                "JOIN pav1_hoyts.\"FormatoAudio\" Fa ON Fa.id = F.id_audio " +
-                "JOIN pav1_hoyts.\"FormatoVideo\" Fv ON Fv.id = F.id_formato WHERE F.id_pelicula = '" + id_selected + "'  ORDER BY F.fecha_funcion, F.horario_comienzo ASC ";
+                "Fa.nombre, Fv.nombre, F.stock_tickets FROM Funciones F " +
+                "JOIN dias D ON D.number = F.dia " +
+                "JOIN evento E ON E.id = F.id_evento " +
+                "JOIN FormatoAudio Fa ON Fa.id = F.id_audio " +
+                "JOIN FormatoVideo Fv ON Fv.id = F.id_formato WHERE F.id_pelicula = '" + id_selected + "'  ORDER BY F.fecha_funcion, F.horario_comienzo ASC ";
 
             DataTable datos = db.GetData(sql);
             DataRowCollection funciones = datos.Rows;
@@ -171,7 +171,7 @@ namespace Hoyts.Forms.Proyecciones
                     if (day.Contains(aux_date.DayOfWeek.ToString()))
                     {
                         string sala = cb_sala.SelectedValue.ToString();
-                        DataTable datos_sala = db.GetData("SELECT capacidad FROM pav1_hoyts.\"Sala\" WHERE numero_sala = '" + sala + "'");
+                        DataTable datos_sala = db.GetData("SELECT capacidad FROM Sala WHERE numero_sala = '" + sala + "'");
                         int capacidad = Convert.ToInt32(datos_sala.Rows[0]["capacidad"]);
 
                         string hr = hora_comienzo.Hour.ToString();
@@ -186,7 +186,7 @@ namespace Hoyts.Forms.Proyecciones
                         string f_min = horario_fin.Minute.ToString();
                         string finishTime = f_hr + ":" + f_min;
 
-                        string sql = "INSERT INTO pav1_hoyts.\"Funciones\" " +
+                        string sql = "INSERT INTO Funciones " +
                             "(id_pelicula, fecha_funcion, horario_comienzo, horario_fin, dia, id_evento, id_formato, id_audio, id_sala, stock_tickets)" +
                             " VALUES (" +
                             "'" + id_selected + "', " +

@@ -164,7 +164,7 @@
             this.button7.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button7.Size = new System.Drawing.Size(173, 77);
             this.button7.TabIndex = 20;
-            this.button7.Text = "Datos de Peliculas";
+            this.button7.Text = "Reporte de funciones por pelicula";
             this.button7.UseVisualStyleBackColor = false;
             // 
             // btn_genre

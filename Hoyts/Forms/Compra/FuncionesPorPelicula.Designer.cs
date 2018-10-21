@@ -32,10 +32,6 @@
             this.movie_title = new System.Windows.Forms.Label();
             this.movie_subtitle = new System.Windows.Forms.Label();
             this.dgv_hoy = new System.Windows.Forms.DataGridView();
-            this.id_funcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sala = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.horario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formato = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,6 +45,10 @@
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_funcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sala = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.horario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formato = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_hoy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tomorrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_futuro)).BeginInit();
@@ -100,36 +100,6 @@
             this.dgv_hoy.TabIndex = 8;
             this.dgv_hoy.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.selectMovieHoy);
             this.dgv_hoy.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.selectMovieHoy);
-            // 
-            // id_funcion
-            // 
-            this.id_funcion.HeaderText = "id";
-            this.id_funcion.Name = "id_funcion";
-            this.id_funcion.Visible = false;
-            // 
-            // sala
-            // 
-            this.sala.FillWeight = 55F;
-            this.sala.HeaderText = "Sala";
-            this.sala.Name = "sala";
-            this.sala.ReadOnly = true;
-            this.sala.Width = 55;
-            // 
-            // horario
-            // 
-            this.horario.FillWeight = 132F;
-            this.horario.HeaderText = "Horario";
-            this.horario.Name = "horario";
-            this.horario.ReadOnly = true;
-            this.horario.Width = 132;
-            // 
-            // formato
-            // 
-            this.formato.FillWeight = 125F;
-            this.formato.HeaderText = "Formato";
-            this.formato.Name = "formato";
-            this.formato.ReadOnly = true;
-            this.formato.Width = 125;
             // 
             // label1
             // 
@@ -260,6 +230,36 @@
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             this.dataGridViewTextBoxColumn8.Width = 125;
             // 
+            // id_funcion
+            // 
+            this.id_funcion.HeaderText = "id";
+            this.id_funcion.Name = "id_funcion";
+            this.id_funcion.Visible = false;
+            // 
+            // sala
+            // 
+            this.sala.FillWeight = 55F;
+            this.sala.HeaderText = "Sala";
+            this.sala.Name = "sala";
+            this.sala.ReadOnly = true;
+            this.sala.Width = 55;
+            // 
+            // horario
+            // 
+            this.horario.FillWeight = 132F;
+            this.horario.HeaderText = "Horario";
+            this.horario.Name = "horario";
+            this.horario.ReadOnly = true;
+            this.horario.Width = 132;
+            // 
+            // formato
+            // 
+            this.formato.FillWeight = 125F;
+            this.formato.HeaderText = "Formato";
+            this.formato.Name = "formato";
+            this.formato.ReadOnly = true;
+            this.formato.Width = 125;
+            // 
             // FuncionesPorPelicula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,10 +297,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_funcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sala;
-        private System.Windows.Forms.DataGridViewTextBoxColumn horario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn formato;
         private System.Windows.Forms.DataGridView dgv_tomorrow;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -311,5 +307,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_funcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sala;
+        private System.Windows.Forms.DataGridViewTextBoxColumn horario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn formato;
     }
 }
