@@ -166,6 +166,7 @@
             this.button7.TabIndex = 20;
             this.button7.Text = "Reporte de funciones por pelicula";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // btn_genre
             // 

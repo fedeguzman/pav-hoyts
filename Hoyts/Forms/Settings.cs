@@ -40,5 +40,11 @@ namespace Hoyts.Forms
             Forms.Evento evento = new Evento();
             evento.ShowDialog();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Forms.Reportes.Reporte reporte = new Reportes.Reporte();
+            reporte.ShowDialog();
+        }
     }
 }
