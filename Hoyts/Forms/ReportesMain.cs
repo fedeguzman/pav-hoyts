@@ -28,5 +28,23 @@ namespace Hoyts.Forms
             Forms.Reportes.ReporteTicketsIntervalo r = new Forms.Reportes.ReporteTicketsIntervalo();
             r.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Forms.Reportes.WinFormReportePeliculaPorSala r = new Forms.Reportes.WinFormReportePeliculaPorSala();
+            r.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Forms.Reportes.ReporteHistoricoPeliculasMasVendidas.WinFormsReporte r = new Forms.Reportes.ReporteHistoricoPeliculasMasVendidas.WinFormsReporte();
+            r.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Forms.Reportes.ReporteHistoricoTicketsPorSala.WinForms r = new Forms.Reportes.ReporteHistoricoTicketsPorSala.WinForms();
+            r.ShowDialog();
+        }
     }
 }

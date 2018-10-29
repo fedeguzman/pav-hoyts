@@ -130,6 +130,33 @@
     <Compile Include="Forms\ReportesMain.Designer.cs">
       <DependentUpon>ReportesMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Reportes\PeliculaPorSala.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PeliculaPorSala.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\ConjuntoDatos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConjuntoDatos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\WinFormsReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\WinFormsReporte.Designer.cs">
+      <DependentUpon>WinFormsReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoTicketsPorSala\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoTicketsPorSala\WinForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoTicketsPorSala\WinForms.Designer.cs">
+      <DependentUpon>WinForms.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reportes\ReporteTicketsIntervalo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +184,12 @@
     </Compile>
     <Compile Include="Forms\Reportes\Reporte.Designer.cs">
       <DependentUpon>Reporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\WinFormReportePeliculaPorSala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reportes\WinFormReportePeliculaPorSala.Designer.cs">
+      <DependentUpon>WinFormReportePeliculaPorSala.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SalasDeProyeccion.cs">
       <SubType>Form</SubType>
@@ -210,12 +243,24 @@
       <DependentUpon>ReportesMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reportes\FuncionesDePelicula.rdlc" />
+    <EmbeddedResource Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\ReportePeliculaPorSala.rdlc" />
+    <EmbeddedResource Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\WinFormsReporte.resx">
+      <DependentUpon>WinFormsReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reportes\ReporteHistoricoTicketsPorSala\Reporte.rdlc" />
+    <EmbeddedResource Include="Forms\Reportes\ReporteHistoricoTicketsPorSala\WinForms.resx">
+      <DependentUpon>WinForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reportes\ReportePeliculaPorSala.rdlc" />
     <EmbeddedResource Include="Forms\Reportes\ReporteTicketsIntervalo.resx">
       <DependentUpon>ReporteTicketsIntervalo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reportes\TicketsIntervaloReporte.rdlc" />
     <EmbeddedResource Include="Forms\Reportes\Reporte.resx">
       <DependentUpon>Reporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reportes\WinFormReportePeliculaPorSala.resx">
+      <DependentUpon>WinFormReportePeliculaPorSala.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SalasDeProyeccion.resx">
       <DependentUpon>SalasDeProyeccion.cs</DependentUpon>
@@ -232,6 +277,39 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Forms\Reportes\PeliculaPorSala.xsc">
+      <DependentUpon>PeliculaPorSala.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\PeliculaPorSala.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PeliculaPorSala.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\Reportes\PeliculaPorSala.xss">
+      <DependentUpon>PeliculaPorSala.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\ConjuntoDatos.xsc">
+      <DependentUpon>ConjuntoDatos.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\ConjuntoDatos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ConjuntoDatos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\ConjuntoDatos.xss">
+      <DependentUpon>ConjuntoDatos.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoTicketsPorSala\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoTicketsPorSala\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoTicketsPorSala\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Forms\Reportes\TicketsIntervalo.xsc">
       <DependentUpon>TicketsIntervalo.xsd</DependentUpon>
     </None>
