@@ -135,6 +135,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PeliculaPorSala.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoDePrecios\ReporteHistoricoDePrecios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteHistoricoDePrecios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoDePrecios\WinFormReporteHistoricoDePrecios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoDePrecios\WinFormReporteHistoricoDePrecios.Designer.cs">
+      <DependentUpon>WinFormReporteHistoricoDePrecios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\ConjuntoDatos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -243,6 +254,10 @@
       <DependentUpon>ReportesMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reportes\FuncionesDePelicula.rdlc" />
+    <EmbeddedResource Include="Forms\Reportes\ReporteHistoricoDePrecios\ReporteHistoricoDePrecios.rdlc" />
+    <EmbeddedResource Include="Forms\Reportes\ReporteHistoricoDePrecios\WinFormReporteHistoricoDePrecios.resx">
+      <DependentUpon>WinFormReporteHistoricoDePrecios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\ReportePeliculaPorSala.rdlc" />
     <EmbeddedResource Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\WinFormsReporte.resx">
       <DependentUpon>WinFormsReporte.cs</DependentUpon>
@@ -287,6 +302,17 @@
     </None>
     <None Include="Forms\Reportes\PeliculaPorSala.xss">
       <DependentUpon>PeliculaPorSala.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoDePrecios\ReporteHistoricoDePrecios.xsc">
+      <DependentUpon>ReporteHistoricoDePrecios.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoDePrecios\ReporteHistoricoDePrecios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteHistoricoDePrecios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoDePrecios\ReporteHistoricoDePrecios.xss">
+      <DependentUpon>ReporteHistoricoDePrecios.xsd</DependentUpon>
     </None>
     <None Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\ConjuntoDatos.xsc">
       <DependentUpon>ConjuntoDatos.xsd</DependentUpon>

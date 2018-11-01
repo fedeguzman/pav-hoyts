@@ -46,5 +46,11 @@ namespace Hoyts.Forms
             Forms.Reportes.ReporteHistoricoTicketsPorSala.WinForms r = new Forms.Reportes.ReporteHistoricoTicketsPorSala.WinForms();
             r.ShowDialog();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Forms.Reportes.ReporteHistoricoDePrecios.WinFormReporteHistoricoDePrecios r = new Forms.Reportes.ReporteHistoricoDePrecios.WinFormReporteHistoricoDePrecios();
+            r.ShowDialog();
+        }
     }
 }
