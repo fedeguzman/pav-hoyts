@@ -32,6 +32,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Npgsql, Version=4.0.3.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>..\packages\Npgsql.4.0.3\lib\net451\Npgsql.dll</HintPath>
@@ -39,6 +60,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
@@ -72,29 +94,113 @@
     <Compile Include="Forms\Calificaciones.Designer.cs">
       <DependentUpon>Calificaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Compra\Compra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compra\Compra.Designer.cs">
+      <DependentUpon>Compra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compra\FuncionesPorPelicula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compra\FuncionesPorPelicula.Designer.cs">
+      <DependentUpon>FuncionesPorPelicula.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Evento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Evento.Designer.cs">
       <DependentUpon>Evento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\formularioPrecios.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\formularioPrecios.Designer.cs">
-      <DependentUpon>formularioPrecios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\PreciosYpromociones.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\PreciosYpromociones.Designer.cs">
-      <DependentUpon>PreciosYpromociones.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Genero.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Genero.Designer.cs">
       <DependentUpon>Genero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Proyecciones\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Proyecciones\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportesMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportesMain.Designer.cs">
+      <DependentUpon>ReportesMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\PeliculaPorSala.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PeliculaPorSala.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoDePrecios\ReporteHistoricoDePrecios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteHistoricoDePrecios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoDePrecios\WinFormReporteHistoricoDePrecios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoDePrecios\WinFormReporteHistoricoDePrecios.Designer.cs">
+      <DependentUpon>WinFormReporteHistoricoDePrecios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\ConjuntoDatos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConjuntoDatos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\WinFormsReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\WinFormsReporte.Designer.cs">
+      <DependentUpon>WinFormsReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoTicketsPorSala\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoTicketsPorSala\WinForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteHistoricoTicketsPorSala\WinForms.Designer.cs">
+      <DependentUpon>WinForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteTicketsIntervalo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reportes\ReporteTicketsIntervalo.Designer.cs">
+      <DependentUpon>ReporteTicketsIntervalo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\TicketsIntervalo.cs">
+      <DependentUpon>TicketsIntervalo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\TicketsIntervalo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TicketsIntervalo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\FuncionesDePelicula.cs">
+      <DependentUpon>FuncionesDePelicula.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\FuncionesDePelicula.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FuncionesDePelicula.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\Reporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reportes\Reporte.Designer.cs">
+      <DependentUpon>Reporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reportes\WinFormReportePeliculaPorSala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reportes\WinFormReportePeliculaPorSala.Designer.cs">
+      <DependentUpon>WinFormReportePeliculaPorSala.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SalasDeProyeccion.cs">
       <SubType>Form</SubType>
@@ -119,17 +225,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\DBConnection.cs" />
     <Compile Include="Source\PeliculasEnCartelera.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="Forms\App.resx">
       <DependentUpon>App.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Calificaciones.resx">
       <DependentUpon>Calificaciones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compra\Compra.resx">
+      <DependentUpon>Compra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compra\FuncionesPorPelicula.resx">
+      <DependentUpon>FuncionesPorPelicula.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Evento.resx">
       <DependentUpon>Evento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\formularioPrecios.resx">
-      <DependentUpon>formularioPrecios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Genero.resx">
       <DependentUpon>Genero.cs</DependentUpon>
@@ -137,8 +247,35 @@
     <EmbeddedResource Include="Forms\Pelicula.resx">
       <DependentUpon>Pelicula.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PreciosYpromociones.resx">
-      <DependentUpon>PreciosYpromociones.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Proyecciones\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportesMain.resx">
+      <DependentUpon>ReportesMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reportes\FuncionesDePelicula.rdlc" />
+    <EmbeddedResource Include="Forms\Reportes\ReporteHistoricoDePrecios\ReporteHistoricoDePrecios.rdlc" />
+    <EmbeddedResource Include="Forms\Reportes\ReporteHistoricoDePrecios\WinFormReporteHistoricoDePrecios.resx">
+      <DependentUpon>WinFormReporteHistoricoDePrecios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\ReportePeliculaPorSala.rdlc" />
+    <EmbeddedResource Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\WinFormsReporte.resx">
+      <DependentUpon>WinFormsReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reportes\ReporteHistoricoTicketsPorSala\Reporte.rdlc" />
+    <EmbeddedResource Include="Forms\Reportes\ReporteHistoricoTicketsPorSala\WinForms.resx">
+      <DependentUpon>WinForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reportes\ReportePeliculaPorSala.rdlc" />
+    <EmbeddedResource Include="Forms\Reportes\ReporteTicketsIntervalo.resx">
+      <DependentUpon>ReporteTicketsIntervalo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reportes\TicketsIntervaloReporte.rdlc" />
+    <EmbeddedResource Include="Forms\Reportes\Reporte.resx">
+      <DependentUpon>Reporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reportes\WinFormReportePeliculaPorSala.resx">
+      <DependentUpon>WinFormReportePeliculaPorSala.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SalasDeProyeccion.resx">
       <DependentUpon>SalasDeProyeccion.cs</DependentUpon>
@@ -155,6 +292,72 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Forms\Reportes\PeliculaPorSala.xsc">
+      <DependentUpon>PeliculaPorSala.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\PeliculaPorSala.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PeliculaPorSala.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\Reportes\PeliculaPorSala.xss">
+      <DependentUpon>PeliculaPorSala.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoDePrecios\ReporteHistoricoDePrecios.xsc">
+      <DependentUpon>ReporteHistoricoDePrecios.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoDePrecios\ReporteHistoricoDePrecios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteHistoricoDePrecios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoDePrecios\ReporteHistoricoDePrecios.xss">
+      <DependentUpon>ReporteHistoricoDePrecios.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\ConjuntoDatos.xsc">
+      <DependentUpon>ConjuntoDatos.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\ConjuntoDatos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ConjuntoDatos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoPeliculasMasVendidas\ConjuntoDatos.xss">
+      <DependentUpon>ConjuntoDatos.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoTicketsPorSala\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoTicketsPorSala\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\Reportes\ReporteHistoricoTicketsPorSala\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\TicketsIntervalo.xsc">
+      <DependentUpon>TicketsIntervalo.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\TicketsIntervalo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TicketsIntervalo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\Reportes\TicketsIntervalo.xss">
+      <DependentUpon>TicketsIntervalo.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\FuncionesDePelicula.xsc">
+      <DependentUpon>FuncionesDePelicula.xsd</DependentUpon>
+    </None>
+    <None Include="Forms\Reportes\FuncionesDePelicula.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FuncionesDePelicula.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Forms\Reportes\FuncionesDePelicula.xss">
+      <DependentUpon>FuncionesDePelicula.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -167,8 +370,24 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

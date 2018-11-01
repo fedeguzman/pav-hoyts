@@ -2,6 +2,7 @@
 using Npgsql;
 using System;
 using System.Data;
+using System.Data.OleDb;
 using System.Windows.Forms;
 
 namespace Hoyts.Forms
@@ -26,7 +27,7 @@ namespace Hoyts.Forms
 
         private void CargarGrilla()
         {
-            var sql = "SELECT * FROM pav1_hoyts.\"" + table_name + "\" ORDER BY nombre DESC";
+            var sql = "SELECT * FROM " + table_name + " ORDER BY nombre DESC";
             DataTable datos = db.GetData(sql);
             DataRowCollection rows = datos.Rows;
             length = rows.Count;
@@ -60,19 +61,19 @@ namespace Hoyts.Forms
             {
                 if (id_selected == "")
                 {
-                    var sql = "INSERT INTO pav1_hoyts.\"" + table_name + "\" (nombre) VALUES (:nombre)";
-                    NpgsqlParameter[] parameters = new NpgsqlParameter[1];
-                    parameters[0] = new NpgsqlParameter("nombre", nombre);
+                    var sql = "INSERT INTO " + table_name + " (nombre) VALUES ('" + nombre.ToString() + "')";
+                    OleDbParameter[] parameters = new OleDbParameter[1];
+                    parameters[0] = new OleDbParameter("nombre", nombre);
                     db.SetData(sql, parameters);
                     CargarGrilla();
                     limpiar();
                 }
                 else
                 {
-                    var sql = "UPDATE pav1_hoyts.\"" + table_name + "\" SET nombre = :nombre WHERE id = :id";
-                    NpgsqlParameter[] parameters = new NpgsqlParameter[2];
-                    parameters[0] = new NpgsqlParameter("nombre", nombre);
-                    parameters[1] = new NpgsqlParameter("id", Convert.ToInt32(id_selected));
+                    var sql = "UPDATE " + table_name + " SET nombre = + '" + nombre + "' WHERE id = " + id;
+                    OleDbParameter[] parameters = new OleDbParameter[2];
+                    parameters[0] = new OleDbParameter("nombre", nombre);
+                    parameters[1] = new OleDbParameter("id", Convert.ToInt32(id_selected));
                     db.SetData(sql, parameters);
                     CargarGrilla();
                     limpiar();
@@ -99,9 +100,9 @@ namespace Hoyts.Forms
 
             if (result == DialogResult.Yes)
             {
-                var sql = "DELETE FROM pav1_hoyts.\"" + table_name + "\" WHERE id = :id";
-                NpgsqlParameter[] parameters = new NpgsqlParameter[1];
-                parameters[0] = new NpgsqlParameter("id", Convert.ToInt32(id_selected));
+                var sql = "DELETE FROM " + table_name + " WHERE id = " + id_selected;
+                OleDbParameter[] parameters = new OleDbParameter[1];
+                parameters[0] = new OleDbParameter("id", Convert.ToInt32(id_selected));
                 db.SetData(sql, parameters);
                 CargarGrilla();
                 limpiar();

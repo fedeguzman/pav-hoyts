@@ -41,15 +41,10 @@ namespace Hoyts.Forms
             evento.ShowDialog();
         }
 
-        private void Configuración_Load(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Forms.PreciosYpromociones preciosYpromociones = new PreciosYpromociones();
-            preciosYpromociones.ShowDialog();
+            Forms.Reportes.Reporte reporte = new Reportes.Reporte();
+            reporte.ShowDialog();
         }
     }
 }

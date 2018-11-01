@@ -60,6 +60,7 @@
             this.shw_descripcion = new System.Windows.Forms.RichTextBox();
             this.panel_movie = new System.Windows.Forms.Panel();
             this.btn_nuevo = new System.Windows.Forms.Button();
+            this.btn_proyecciones = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dt_movieTables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.img_poster)).BeginInit();
             this.panel_movie.SuspendLayout();
@@ -322,7 +323,6 @@
             this.btn_eliminar.TabIndex = 9;
             this.btn_eliminar.Text = "Eliminar";
             this.btn_eliminar.UseVisualStyleBackColor = false;
-            this.btn_eliminar.Visible = false;
             this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // img_poster
@@ -381,8 +381,22 @@
             this.btn_nuevo.TabIndex = 27;
             this.btn_nuevo.Text = "Nuevo";
             this.btn_nuevo.UseVisualStyleBackColor = false;
-            this.btn_nuevo.Visible = false;
-            this.btn_nuevo.Click += new System.EventHandler(this.button1_Click);
+            this.btn_nuevo.Click += new System.EventHandler(this.new_movie);
+            // 
+            // btn_proyecciones
+            // 
+            this.btn_proyecciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btn_proyecciones.FlatAppearance.BorderSize = 0;
+            this.btn_proyecciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_proyecciones.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_proyecciones.ForeColor = System.Drawing.Color.White;
+            this.btn_proyecciones.Location = new System.Drawing.Point(246, 252);
+            this.btn_proyecciones.Name = "btn_proyecciones";
+            this.btn_proyecciones.Size = new System.Drawing.Size(120, 33);
+            this.btn_proyecciones.TabIndex = 28;
+            this.btn_proyecciones.Text = "Proyecciones";
+            this.btn_proyecciones.UseVisualStyleBackColor = false;
+            this.btn_proyecciones.Click += new System.EventHandler(this.btn_proyecciones_Click);
             // 
             // Pelicula
             // 
@@ -390,6 +404,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(1266, 603);
+            this.Controls.Add(this.btn_proyecciones);
             this.Controls.Add(this.btn_nuevo);
             this.Controls.Add(this.panel_movie);
             this.Controls.Add(this.btn_eliminar);
@@ -456,5 +471,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn calificación;
         private System.Windows.Forms.DataGridViewTextBoxColumn pais;
         private System.Windows.Forms.DataGridViewLinkColumn URL;
+        private System.Windows.Forms.Button btn_proyecciones;
     }
 }

@@ -2,6 +2,7 @@
 using Npgsql;
 using System;
 using System.Data;
+using System.Data.OleDb;
 using System.Windows.Forms;
 
 namespace Hoyts.Forms
@@ -23,7 +24,7 @@ namespace Hoyts.Forms
 
         private void CargarGrilla()
         {
-            var sql = "SELECT * FROM  pav1_hoyts.\"Sala\" ORDER BY numero_sala ASC";
+            var sql = "SELECT * FROM Sala ORDER BY numero_sala ASC";
             DataTable datos = db.GetData(sql);
             DataRowCollection rows = datos.Rows;
 
@@ -64,7 +65,7 @@ namespace Hoyts.Forms
             }
             else
             {
-                var verificar_si_existe = "SELECT * FROM pav1_hoyts.\"Sala\" WHERE numero_sala = " + numero_sala;
+                var verificar_si_existe = "SELECT * FROM Sala WHERE numero_sala = " + numero_sala;
 
                 DataTable datos = db.GetData(verificar_si_existe);
 
@@ -76,12 +77,8 @@ namespace Hoyts.Forms
                     }
                     else
                     {
-                        var sql = "INSERT INTO pav1_hoyts.\"Sala\" (numero_sala, capacidad) VALUES (:numero_sala, :capacidad)";
-                        NpgsqlParameter[] parameters = new NpgsqlParameter[2];
-                        parameters[0] = new NpgsqlParameter("numero_sala", numero_sala);
-                        parameters[1] = new NpgsqlParameter("capacidad", capacidad);
-
-                        db.SetData(sql, parameters);
+                        var sql = "INSERT INTO Sala (numero_sala, capacidad) VALUES (" + numero_sala + "," + capacidad + ")";
+                        db.SetData(sql);
                         CargarGrilla();
                         limpiar();
                     }
@@ -93,10 +90,8 @@ namespace Hoyts.Forms
                         DialogResult result = MessageBox.Show("¿Desea eliminar la sala " + numero_sala + "?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
-                            var sql = "DELETE FROM pav1_hoyts.\"Sala\" where numero_sala = :numero_sala";
-                            NpgsqlParameter[] parameters = new NpgsqlParameter[1];
-                            parameters[0] = new NpgsqlParameter("numero_sala", numero_sala);
-                            db.SetData(sql, parameters);
+                            var sql = "DELETE FROM Sala where numero_sala = " + numero_sala;
+                            db.SetData(sql);
                             CargarGrilla();
                             limpiar();
                         }
@@ -106,10 +101,10 @@ namespace Hoyts.Forms
                         DialogResult result = MessageBox.Show("¿Desea modificar la capacidad de la sala " + numero_sala + " por " + capacidad + "?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
-                            var sql = "UPDATE pav1_hoyts.\"Sala\" SET capacidad = :capacidad WHERE numero_sala = :numero_sala";
-                            NpgsqlParameter[] parameters = new NpgsqlParameter[2];
-                            parameters[0] = new NpgsqlParameter("capacidad", capacidad);
-                            parameters[1] = new NpgsqlParameter("numero_sala", numero_sala);
+                            var sql = "UPDATE Sala SET capacidad = " + capacidad + " WHERE numero_sala = " + numero_sala;
+                            OleDbParameter[] parameters = new OleDbParameter[2];
+                            parameters[0] = new OleDbParameter("@capacidad", capacidad);
+                            parameters[1] = new OleDbParameter("@numero_sala", numero_sala);
 
                             db.SetData(sql, parameters);
                             CargarGrilla();
