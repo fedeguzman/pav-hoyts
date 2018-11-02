@@ -128,6 +128,7 @@
             this.txt_data.Name = "txt_data";
             this.txt_data.Size = new System.Drawing.Size(259, 24);
             this.txt_data.TabIndex = 19;
+            this.txt_data.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_data_MaskInputRejected);
             // 
             // label_tituloOriginal
             // 
@@ -143,11 +144,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Google Sans", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(291, 36);
+            this.label1.Size = new System.Drawing.Size(297, 33);
             this.label1.TabIndex = 22;
             this.label1.Text = "Genero de Peliculas";
             // 

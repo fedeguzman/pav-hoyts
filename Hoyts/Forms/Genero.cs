@@ -113,5 +113,10 @@ namespace Hoyts.Forms
         {
             limpiar();
         }
+
+        private void txt_data_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
     }
 }
