@@ -106,6 +106,12 @@
     <Compile Include="Forms\Compra\FuncionesPorPelicula.Designer.cs">
       <DependentUpon>FuncionesPorPelicula.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Estadisticas\CalificacionesDePelicula\WinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Estadisticas\CalificacionesDePelicula\WinForm.Designer.cs">
+      <DependentUpon>WinForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Evento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +243,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compra\FuncionesPorPelicula.resx">
       <DependentUpon>FuncionesPorPelicula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Estadisticas\CalificacionesDePelicula\Report.rdlc" />
+    <EmbeddedResource Include="Forms\Estadisticas\CalificacionesDePelicula\WinForm.resx">
+      <DependentUpon>WinForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Evento.resx">
       <DependentUpon>Evento.cs</DependentUpon>
@@ -388,6 +398,13 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\Estadisticas\FormatosDePelicula\" />
+    <Folder Include="Forms\Estadisticas\FuncionesPorSala\" />
+    <Folder Include="Forms\Estadisticas\PaisesDeOrigen\" />
+    <Folder Include="Forms\Estadisticas\PeliculasMasVendidas\" />
+    <Folder Include="Forms\Estadisticas\RecaudacionDePeliculas\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
